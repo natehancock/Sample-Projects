@@ -37,9 +37,3 @@ extension ThirdTabCoordinator {
         
     }
 }
-
-extension ThirdTabCoordinator: ThirdMainViewControllerDelegate {
-    func didSelectModel() {
-        
-    }
-}

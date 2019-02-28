@@ -1,9 +1,6 @@
 
 import UIKit
 
-enum TabBarItems {
-    
-}
 
 class TabBarController: UITabBarController {
     

@@ -3,6 +3,7 @@
 import Foundation
 import UIKit
 
+/// Handles instantiation of ViewControllers from Storyboards.
 class StoryboardManager {
 
     enum Storyboards: String {
@@ -26,7 +27,8 @@ class StoryboardManager {
         }
     }
     
-    typealias Factory = StoryboardManagerProtocol & NetworkBoundFactoryProtocol & ViewControllerFactoryProtocol
+    
+    typealias Factory = StoryboardManagerProtocol & NetworkManagerProtocol & ViewControllerFactoryProtocol
     
     private var factory: Factory
     
@@ -36,7 +38,7 @@ class StoryboardManager {
     
     typealias StoryboardIdentifier = Storyboards
     
-    private func loadScene<ViewControllerIdentifier: RawRepresentable>(storyboard: StoryboardIdentifier, viewController: ViewControllerIdentifier) -> UIViewController where ViewControllerIdentifier.RawValue == String {
+    private func loadViewController<ViewControllerIdentifier: RawRepresentable>(storyboard: StoryboardIdentifier, viewController: ViewControllerIdentifier) -> UIViewController where ViewControllerIdentifier.RawValue == String {
         return UIStoryboard.init(name: storyboard.rawValue, bundle: nil).instantiateViewController(withIdentifier: viewController.rawValue)
     }
     
@@ -50,32 +52,11 @@ class StoryboardManager {
     }
     
 }
-
-// MARK: - Main Application Setup
-
-extension StoryboardManager {
-    
-//    func baseTabBarController(coordinators: (first: FirstTabCoordinator, second: SecondTabCoordinator, third: ThirdTabCoordinator), factory: Factory) -> TabBarController {
-//        let mainVCs = mainViewControllers(coordinators: (first: coordinators.first, second: coordinators.second, third: coordinators.third))
-//        let tabController = TabBarController()
-//        tabController.viewControllers = mainVCs
-//        return tabController
-//    }
-//    
-//    private func mainViewControllers(coordinators: (first: FirstTabCoordinator, second: SecondTabCoordinator, third: ThirdTabCoordinator)) -> [UIViewController] {
-//        let firstVc = firstTabMain(with: coordinators.first)
-//        let secondVc = secondTabMain(with: coordinators.second)
-////        let thirdVc = factory.mak
-//        
-//        return [firstVc, secondVc, thirdVc]
-//    }
-}
-
 // MARK: - First Tab
 
 extension StoryboardManager {
     func firstTabMain<T: FirstMainViewControllerDelegate>(with coordinator: T) -> UIViewController {
-        let vc = loadScene(storyboard: Storyboards.firstTab, viewController: ViewControllers.firstTab.main) as! FirstMainViewController
+        let vc = loadViewController(storyboard: Storyboards.firstTab, viewController: ViewControllers.firstTab.main) as! FirstMainViewController
         vc.delegate = coordinator
         vc.title = "FirstMainViewController"
         
@@ -99,11 +80,3 @@ extension StoryboardManager {
 
 // MARK: - Third Tab
 
-extension StoryboardManager {
-    func thirdTabMain() -> ThirdMainViewController {
-        let vc = loadScene(storyboard: Storyboards.thirdTab, viewController: ViewControllers.thirdTab.main) as! ThirdMainViewController
-        // if loading from a storyboard, must have a setFactory method
-        vc.setFactory(factory: factory)
-        return vc
-    }
-}

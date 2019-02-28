@@ -41,7 +41,6 @@ extension ViewManager: ViewManagerProtocol {
 }
 
 // MARK: - Main Setup
-
 extension ViewManager {
     private func setupMainApp() {
         baseTabBarController = factory.getTabBarController()
