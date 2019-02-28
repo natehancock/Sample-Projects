@@ -3,10 +3,17 @@
 import Foundation
 import UIKit
 
+
+protocol MessageListViewControllerProtocol: class {
+    func didSelectMessage(_ message: Message)
+}
+
 class MessageListViewController: UIViewController {
     
     typealias Factory = ViewControllerFactoryProtocol & NetworkManagerProtocol
     private let factory: Factory
+    
+    weak var delegate: MessageListViewControllerProtocol?
     
     var tableView: UITableView!
     
@@ -38,11 +45,20 @@ class MessageListViewController: UIViewController {
             self.messages = messages
         })
     }
-    
 }
 
-//MARK: UITableViewDelegate, UITableViewDataSource
-extension MessageListViewController: UITableViewDelegate, UITableViewDataSource {
+
+//MARK: UITableViewDelegate
+extension MessageListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let messages = messages else { return }
+        delegate?.didSelectMessage(messages[indexPath.row])
+    }
+}
+
+//MARK: UITableViewDataSource
+extension MessageListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = messages![indexPath.row].text

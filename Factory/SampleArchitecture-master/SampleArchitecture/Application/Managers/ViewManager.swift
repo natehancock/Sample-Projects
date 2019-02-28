@@ -17,9 +17,9 @@ class ViewManager: NSObject {
     // MARK: - Coordinators
     var baseTabBarController: TabBarController!
     
-    var firstCoordinator = FirstTabCoordinator()
-    var secondCoordinator = SecondTabCoordinator()
-    var thirdCoordinator = ThirdTabCoordinator()
+//    var firstCoordinator = FirstTabCoordinator()
+//    var secondCoordinator = SecondTabCoordinator()
+//    var thirdCoordinator = ThirdTabCoordinator()
     
     // MARK: - Properties
     var window: UIWindow?

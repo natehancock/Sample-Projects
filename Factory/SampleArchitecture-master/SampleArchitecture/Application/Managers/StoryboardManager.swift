@@ -10,7 +10,7 @@ class StoryboardManager {
         case main = "Main"
         case firstTab = "FirstTab"
         case secondTab = "SecondTab"
-        case thirdTab = "ThirdTab"
+        case messages = "Messages"
     }
     
     enum ViewControllers {
@@ -22,8 +22,9 @@ class StoryboardManager {
             case main = ""
         }
         
-        enum thirdTab: String {
+        enum messages: String {
             case main = "ThirdViewController"
+            case detail = "MessageDetailViewController"
         }
     }
     
@@ -78,5 +79,12 @@ extension StoryboardManager {
     }
 }
 
-// MARK: - Third Tab
+// MARK: - Message View Controllers
 
+extension StoryboardManager {
+    func messageDetailViewController() -> MessageDetailViewController {
+        let vc = loadViewController(storyboard: .messages, viewController: ViewControllers.messages.detail) as! MessageDetailViewController
+        vc.setFactory(self.factory)
+        return vc
+    }
+}

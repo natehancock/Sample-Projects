@@ -7,7 +7,8 @@ protocol ViewControllerFactoryProtocol {
     func getTabBarController() -> TabBarController
     func getFirstMainViewController() -> UINavigationController
     func getSecondMainViewController() -> UINavigationController
-    func getMessageListViewController(with messages: [Message]?) -> MessageListViewController
+    func getMessageListViewController(with messages: [Message]?) -> UINavigationController
+    func getMessageDetailViewController(for message: Message) -> MessageDetailViewController
 //    func makeMessageViewController(for message: Message) -> MessageViewController
 }
 
@@ -34,7 +35,7 @@ class DependencyContainer {
     
     private lazy var firstCoordinator = FirstTabCoordinator()
     private lazy var secondCoordinator = SecondTabCoordinator()
-    private lazy var thirdCoordinator = ThirdTabCoordinator()
+    private lazy var thirdCoordinator = ThirdTabCoordinator(factory: self)
 }
 
 extension DependencyContainer: ViewManagerFactoryProtocol {
@@ -71,11 +72,17 @@ extension DependencyContainer: ViewControllerFactoryProtocol {
         return UINavigationController()
     }
     
-    func getMessageListViewController(with messages: [Message]?) -> MessageListViewController {
-        return MessageListViewController(factory: self, messages: messages)
+    func getMessageListViewController(with messages: [Message]?) -> UINavigationController {
+        let vc = MessageListViewController(factory: self, messages: messages)
+        let navController = UINavigationController(rootViewController: vc)
+        thirdCoordinator.navController = navController
+        vc.delegate = thirdCoordinator
+        return navController
     }
     
-//    func makeMessageViewController(for message: Message) -> MessageViewController {
-//        return MessageViewController(message: message, sender: messageSender)
-//    }
+    func getMessageDetailViewController(for message: Message) -> MessageDetailViewController {
+        let vc = storyboardManager.messageDetailViewController()
+        vc.setMessage(with: message)
+        return vc
+    }
 }

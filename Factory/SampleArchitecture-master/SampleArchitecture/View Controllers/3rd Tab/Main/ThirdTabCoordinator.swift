@@ -10,30 +10,24 @@ class ThirdTabCoordinator: NavCoordinator {
     
     var navController: UINavigationController?
     
+    typealias Factory = ViewControllerFactoryProtocol
+    
+    private var factory: Factory
+    
+    init(factory: Factory) {
+        self.factory = factory
+    }
+    
     deinit {
         navController = nil
-    }
-    
-    // MARK: - Navigation
-    
-    /// Present a VC modally
-    private func present(vc: UIViewController) {
-        navController?.present(vc, animated: true, completion: nil)
-    }
-    
-    /// Adding a view controller to the stack
-    private func push(vc: UIViewController) {
-        navController?.pushViewController(vc, animated: true)
-    }
-    
-    func stackViewControllers(vcs: [UIViewController]) {
-        navController?.setViewControllers(vcs, animated: true)
     }
 }
 
 // MARK: - Navigation
-extension ThirdTabCoordinator {
-    private func presentDetail() {
-        
+extension ThirdTabCoordinator: MessageListViewControllerProtocol {
+    func didSelectMessage(_ message: Message) {
+        let vc = factory.getMessageDetailViewController(for: message)
+        push(vc: vc)
     }
+
 }

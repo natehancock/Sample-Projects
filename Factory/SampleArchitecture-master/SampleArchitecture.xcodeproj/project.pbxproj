@@ -12,7 +12,7 @@
 		A82C04E7220C94BA00348600 /* ThirdTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82C04E6220C94BA00348600 /* ThirdTabCoordinator.swift */; };
 		A82C04F0220C9B5800348600 /* FirstTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82C04EF220C9B5800348600 /* FirstTab.storyboard */; };
 		A82C04F2220C9B7E00348600 /* SecondTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82C04F1220C9B7E00348600 /* SecondTab.storyboard */; };
-		A82C04F4220C9B8E00348600 /* ThirdTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82C04F3220C9B8E00348600 /* ThirdTab.storyboard */; };
+		A82C04F4220C9B8E00348600 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82C04F3220C9B8E00348600 /* Messages.storyboard */; };
 		A8604E2C2211ED27005D5175 /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8604E2B2211ED27005D5175 /* ViewManager.swift */; };
 		A8604E3322122B0D005D5175 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8604E3222122B0D005D5175 /* Contact.swift */; };
 		A8604E392212307A005D5175 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8604E382212307A005D5175 /* ContactCell.swift */; };
@@ -31,6 +31,7 @@
 		A8DF3997220A3C6800BF238A /* FirstTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF3996220A3C6800BF238A /* FirstTabCoordinator.swift */; };
 		A8DF3999220A403300BF238A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF3998220A403300BF238A /* TabBarController.swift */; };
 		CD88360522285322003EA534 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD88360422285322003EA534 /* NetworkManager.swift */; };
+		CD88360722285BBB003EA534 /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD88360622285BBB003EA534 /* MessageDetailViewController.swift */; };
 		CD9896EA22149832001464A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9896E922149832001464A1 /* User.swift */; };
 		CD9896EC2214A548001464A1 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9896EB2214A548001464A1 /* Message.swift */; };
 		CD9896F02214A585001464A1 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9896EF2214A585001464A1 /* DependencyContainer.swift */; };
@@ -63,7 +64,7 @@
 		A82C04E6220C94BA00348600 /* ThirdTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabCoordinator.swift; sourceTree = "<group>"; };
 		A82C04EF220C9B5800348600 /* FirstTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstTab.storyboard; sourceTree = "<group>"; };
 		A82C04F1220C9B7E00348600 /* SecondTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTab.storyboard; sourceTree = "<group>"; };
-		A82C04F3220C9B8E00348600 /* ThirdTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdTab.storyboard; sourceTree = "<group>"; };
+		A82C04F3220C9B8E00348600 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		A8604E2B2211ED27005D5175 /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		A8604E3222122B0D005D5175 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		A8604E382212307A005D5175 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		A8DF3996220A3C6800BF238A /* FirstTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabCoordinator.swift; sourceTree = "<group>"; };
 		A8DF3998220A403300BF238A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CD88360422285322003EA534 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CD88360622285BBB003EA534 /* MessageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
 		CD9896E922149832001464A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CD9896EB2214A548001464A1 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CD9896EF2214A585001464A1 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				A82C04E6220C94BA00348600 /* ThirdTabCoordinator.swift */,
 				CD9896F72214AF89001464A1 /* MessageListViewController.swift */,
+				CD88360622285BBB003EA534 /* MessageDetailViewController.swift */,
 				CD9896F52214AE1E001464A1 /* MessageListTableView.swift */,
 			);
 			path = Main;
@@ -166,7 +169,7 @@
 			children = (
 				A82C04EF220C9B5800348600 /* FirstTab.storyboard */,
 				A82C04F1220C9B7E00348600 /* SecondTab.storyboard */,
-				A82C04F3220C9B8E00348600 /* ThirdTab.storyboard */,
+				A82C04F3220C9B8E00348600 /* Messages.storyboard */,
 				CD9896F32214AD7B001464A1 /* MessageListViewController.xib */,
 				CD9896F92214B999001464A1 /* ThirdTabMainViewController.xib */,
 			);
@@ -427,7 +430,7 @@
 				A82C04F2220C9B7E00348600 /* SecondTab.storyboard in Resources */,
 				A8DF395D220A32E800BF238A /* Assets.xcassets in Resources */,
 				CD9896FA2214B999001464A1 /* ThirdTabMainViewController.xib in Resources */,
-				A82C04F4220C9B8E00348600 /* ThirdTab.storyboard in Resources */,
+				A82C04F4220C9B8E00348600 /* Messages.storyboard in Resources */,
 				A8DF395B220A32E600BF238A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +469,7 @@
 				A8DF398E220A369E00BF238A /* StoryboardManager.swift in Sources */,
 				A8604E3C221233BF005D5175 /* ContactDetailController.swift in Sources */,
 				A82C04E5220C94AC00348600 /* SecondTabCoordinator.swift in Sources */,
+				CD88360722285BBB003EA534 /* MessageDetailViewController.swift in Sources */,
 				A8DF3956220A32E600BF238A /* AppDelegate.swift in Sources */,
 				CD9896F82214AF89001464A1 /* MessageListViewController.swift in Sources */,
 				A8DF3995220A3C3600BF238A /* FirstMainViewController.swift in Sources */,
